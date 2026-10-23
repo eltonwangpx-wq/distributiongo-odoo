@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_distributiongo_receipt_connector,distributiongo.receipt connector,model_distributiongo_receipt,group_distributiongo_connector,1,0,1,0
+access_distributiongo_receipt_stock_user,distributiongo.receipt stock user,model_distributiongo_receipt,stock.group_stock_user,1,0,0,0
+access_distributiongo_receipt_manager,distributiongo.receipt manager,model_distributiongo_receipt,stock.group_stock_manager,1,0,0,1

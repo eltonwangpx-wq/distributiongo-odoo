@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- The bot user DistributionGo authenticates as gets this group on top of the normal
+         stock user rights; it does not grant manager rights anywhere. -->
+    <!-- Odoo 19 removed res.groups.category_id (groups are grouped by res.groups.privilege). -->
+    <record id="group_distributiongo_connector" model="res.groups">
+        <field name="name">DistributionGo Connector</field>
+        <field name="implied_ids" eval="[(4, ref('stock.group_stock_user'))]"/>
+    </record>
+</odoo>

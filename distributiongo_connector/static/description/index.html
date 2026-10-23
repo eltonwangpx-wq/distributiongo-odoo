@@ -1,0 +1,63 @@
+<section style="max-width: 960px; margin: 0 auto; padding: 24px 16px; font-family: Arial, Helvetica, sans-serif; color: #1f2933; line-height: 1.6;">
+    <div style="text-align: center; margin-bottom: 32px;">
+        <img src="icon.png" alt="DistributionGo" style="width: 96px; height: 96px; border-radius: 20px;"/>
+        <h1 style="color: #1b7a3a; margin: 16px 0 8px;">DistributionGo Connector</h1>
+        <p style="font-size: 18px; margin: 0;">
+            Connect Odoo deliveries to DistributionGo warehouse picking and the SortingGo App.
+        </p>
+    </div>
+
+    <h2 style="color: #1b7a3a; border-bottom: 2px solid #d7eedd; padding-bottom: 4px;">What it does</h2>
+    <p>
+        DistributionGo is a free warehouse-execution system: it turns reserved deliveries into
+        picking tasks for warehouse staff working with the SortingGo App on phones and tablets,
+        then ships the picked quantities back into Odoo. This module is the narrow connector
+        DistributionGo calls through Odoo's JSON-2 API.
+    </p>
+    <ul>
+        <li><b>Order pool</b>: outgoing deliveries that Odoo has fully reserved, searchable and paged.</li>
+        <li><b>Snapshot</b>: one call returns a delivery's lines, quantities, locations and a version, all from the same moment.</li>
+        <li><b>One write method</b>: applies a pick result to a delivery in a single Odoo transaction and stores a
+            receipt under the caller's operation key. Sending the same key again returns the stored result
+            instead of shipping twice, so a lost network answer never causes a double shipment.</li>
+        <li><b>Short picks</b>: the rest of a delivery becomes a backorder or is dropped, as DistributionGo asks.</li>
+        <li><b>Route check</b>: shows which warehouses use a delivery route DistributionGo serves.</li>
+    </ul>
+
+    <h2 style="color: #1b7a3a; border-bottom: 2px solid #d7eedd; padding-bottom: 4px;">Safe by design</h2>
+    <ul>
+        <li>Runs as the calling user (a dedicated DistributionGo bot), never with <code>sudo()</code>.</li>
+        <li>Everything is read-only except the one write method above.</li>
+        <li>Makes no outbound connections and stores no addresses: DistributionGo calls Odoo, never the other way round.
+            Access is granted by the bot's API key and revoked by deleting it.</li>
+        <li>Depends on the Community module <code>stock</code> only.</li>
+    </ul>
+
+    <h2 style="color: #1b7a3a; border-bottom: 2px solid #d7eedd; padding-bottom: 4px;">Requirements</h2>
+    <ul>
+        <li>Odoo 19.0, self-hosted or on Odoo.sh. Odoo Online cannot install custom modules and is not supported.</li>
+        <li>One-step deliveries (warehouse delivery route "Deliver goods directly").</li>
+        <li>DistributionGo 2.0 or later.</li>
+    </ul>
+
+    <h2 style="color: #1b7a3a; border-bottom: 2px solid #d7eedd; padding-bottom: 4px;">Setup</h2>
+    <ol>
+        <li>Install this module (<i>DistributionGo Connector</i>).</li>
+        <li>Create a user for DistributionGo, for example <code>dg-bot</code>, with only these rights:
+            Internal User, Inventory / User and <i>DistributionGo Connector</i>.</li>
+        <li>Signed in as that user, create an API key (My Preferences, API Keys). Odoo 19 asks for an expiry date.</li>
+        <li>In DistributionGo, set the Odoo address, the database name and that API key
+            (<code>DG_ODOO_URL</code>, <code>DG_ODOO_DB</code>, <code>DG_ODOO_KEY</code>) and restart its services.</li>
+    </ol>
+
+    <h2 style="color: #1b7a3a; border-bottom: 2px solid #d7eedd; padding-bottom: 4px;">Links</h2>
+    <ul>
+        <li>DistributionGo: <a href="https://www.thousan.com/distributiongo/" target="_blank">www.thousan.com/distributiongo</a></li>
+        <li>SortingGo App: <a href="https://www.thousan.com/sortinggo/" target="_blank">www.thousan.com/sortinggo</a></li>
+        <li>Source code and issues: <a href="https://github.com/eltonwangpx-wq/distributiongo-odoo" target="_blank">github.com/eltonwangpx-wq/distributiongo-odoo</a></li>
+    </ul>
+
+    <p style="margin-top: 32px; color: #52606d; font-size: 14px;">
+        License: LGPL-3. Support is best effort through GitHub issues.
+    </p>
+</section>
