@@ -1,4 +1,4 @@
-# Copyright 2026 DistributionGo
+# Copyright 2026 Thousan Wang
 # License LGPL-3.0 (https://www.gnu.org/licenses/lgpl-3.0.html).
 """Idempotent shipment application for DistributionGo (GO gate O2).
 

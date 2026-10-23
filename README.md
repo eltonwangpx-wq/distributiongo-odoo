@@ -66,6 +66,7 @@ git submodule add -b 19.0 https://github.com/eltonwangpx-wq/distributiongo-odoo.
 
 | Module version | Odoo | Notes |
 |---|---|---|
+| 19.0.2.1.1 | 19.0 | Copyright holder Thousan Wang; no functional change |
 | 19.0.2.1.0 | 19.0 | Adds the route check |
 | 19.0.2.0.0 | 19.0 | First release for DistributionGo 2.0 (not published here) |
 
@@ -81,4 +82,4 @@ here from there.
 
 ## License
 
-LGPL-3 (see `LICENSE`, which supplements the GNU GPL v3 in `COPYING`). Copyright DistributionGo.
+LGPL-3 (see `LICENSE`, which supplements the GNU GPL v3 in `COPYING`). Copyright 2026 Thousan Wang.

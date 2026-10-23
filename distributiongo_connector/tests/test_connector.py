@@ -1,4 +1,4 @@
-# Copyright 2026 DistributionGo
+# Copyright 2026 Thousan Wang
 # License LGPL-3.0 (https://www.gnu.org/licenses/lgpl-3.0.html).
 """Add-on tests in Odoo's own runner (WP-F1).
 
